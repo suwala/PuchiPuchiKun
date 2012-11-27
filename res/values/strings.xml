@@ -1,0 +1,15 @@
+<resources>
+
+    <string name="app_name">プチプチ君</string>
+    <string name="menu_settings">設定</string>
+    <string name="title_activity_puchi_main">プチプチ君</string>
+    <string name="label_rush">発散モード</string>
+    <string name="key_rush">rush</string>
+    <string name="label_game">無限プチプチモード</string>
+    <string name="key_game">gameMode</string>
+    <string name="prefRush">ドラッグでも潰せます</string>
+    <string name="prefGame">プチが一定時間で復活します</string>
+    <string name="prefGameHelp">Onにすると発散モードがOFFになります</string>
+	<string name="prefRuhHelp">Onにすると無限プチプチモードがOFFになります</string>
+    
+</resources>

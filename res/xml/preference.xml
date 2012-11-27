@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    <PreferenceCategory android:title="@string/prefRush"><CheckBoxPreference android:defaultValue="false" android:key="@string/key_rush" android:title="@string/label_rush" android:summary="@string/prefRuhHelp"/></PreferenceCategory>
+    
+    
+    <PreferenceCategory android:title="@string/prefGame"><CheckBoxPreference android:defaultValue="false" android:key="@string/key_game" android:title="@string/label_game" android:summary="@string/prefGameHelp"/></PreferenceCategory>
+    
+
+</PreferenceScreen>
