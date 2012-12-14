@@ -41,8 +41,8 @@ public abstract class PuchiView extends View implements OnSharedPreferenceChange
 		
 		int w = this.dispWidth/4 ,h = this.dispWidth/4;
 		
-		this.puchi = BitmapFactory.decodeResource(getResources(), R.drawable.puchi2);
-		this.crush = BitmapFactory.decodeResource(getResources(), R.drawable.puchi3);
+		this.puchi = BitmapFactory.decodeResource(getResources(), R.drawable.newpuchi1);
+		this.crush = BitmapFactory.decodeResource(getResources(), R.drawable.newpuchi2);
 		
 		this.puchi = Bitmap.createScaledBitmap(this.puchi, w, h, false);
 		this.crush = Bitmap.createScaledBitmap(this.crush, w, h, false);
@@ -74,7 +74,7 @@ public abstract class PuchiView extends View implements OnSharedPreferenceChange
 	protected void onDraw(Canvas canvas) {
 		// TODO 自動生成されたメソッド・スタブ
 		super.onDraw(canvas);
-		canvas.drawColor(Color.rgb(235, 235, 235));
+		canvas.drawColor(Color.rgb(221, 183, 134));//ddb786
 		
 		Bitmap draw;
 		for(PuchiDraw d:this.puchiDraw){

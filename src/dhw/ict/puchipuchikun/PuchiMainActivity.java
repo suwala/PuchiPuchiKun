@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.Handler;
 import android.app.Activity;
@@ -44,9 +46,10 @@ public class PuchiMainActivity extends Activity implements SharedPreferences.OnS
 	public Region region;
 	public Integer crashIndex =-1;
 	public List<PuchiDraw> puchiDraw = new ArrayList<PuchiDraw>();
-	public MediaPlayer[] se = new MediaPlayer[6];
+	public SoundPool se;
 	public Integer counter;
 	public Toast toast=null;
+	public int[] exposionId=new int[6];
 	
 	private Map<Boolean, PuchiView> mode = new HashMap<Boolean, PuchiView>();
 	
@@ -91,12 +94,14 @@ public class PuchiMainActivity extends Activity implements SharedPreferences.OnS
         
         this.readPref();
         
-        for(int i=0;i<this.se.length;i++){
-        	this.se[i] = MediaPlayer.create(this, getResources().getIdentifier("puchi"+String.valueOf(i+1), "raw", this.getPackageName()));
+        se = new SoundPool(20,AudioManager.STREAM_MUSIC,0);
+        
+        //se.load(this, R.raw.puchi1, 1);
+        for(int i=0;i<6;i++){
+        	exposionId[i] = se.load(this,getResources().getIdentifier("puchi"+String.valueOf(i+1), "raw", this.getPackageName()),1);
+        	//this.se[i] = SoundPool.create(this, getResources().getIdentifier("puchi"+String.valueOf(i+1), "raw", this.getPackageName()));
         }        
-        
-        
-        
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
     }
     
     private boolean isGameMode(){
@@ -115,13 +120,12 @@ public class PuchiMainActivity extends Activity implements SharedPreferences.OnS
 		return super.onKeyDown(keyCode, event);
 	}	 
 
-	public void playSe(MediaPlayer mp){
-		mp.seekTo(0);
-		mp.start();
+	public void playSe(int id){
+		se.play(id, 1.0f, 1.0f, 0, 0, 1);
 	}
 	
 	public void playSe(){
-		this.playSe(this.se[(int) (Math.random()*5+0.5)]);
+		this.playSe((int)(Math.random()*6+1));
 	}
 	
 	public void stopSe(MediaPlayer mp){
